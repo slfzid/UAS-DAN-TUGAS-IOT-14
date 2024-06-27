@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flame Sensor Data</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        #data { font-size: 24px; margin-top: 20px; }
+    </style>
+    <script>
+        async function fetchData() {
+            const response = await fetch('data.txt');
+            const data = await response.text();
+            document.getElementById('data').innerText = data;
+        }
+
+        setInterval(fetchData, 1000); // Fetch data every second
+    </script>
+</head>
+<body>
+    <h1>Flame Sensor Data</h1>
+    <div id="data">Loading...</div>
+</body>
+</html>
